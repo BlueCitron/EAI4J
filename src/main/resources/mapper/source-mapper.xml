@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+
+<mapper namespace="me.bluecitron.EAI4J.mapper.SourceMapper">
+
+    <select id="SelectEmployees" resultType="me.bluecitron.EAI4J.model.Employee">
+        SELECT
+            *
+        FROM EMPLOYEES
+        WHERE TRANSMIT_YN = 'N'
+    </select>
+
+    <update id="UpdateEmployeesY">
+        UPDATE EMPLOYEES SET
+            TRANSMIT_YN = 'Y'
+            , TRANSMIT_TM = NOW()
+        WHERE EMP_NO = #{empNo}
+    </update>
+
+</mapper>
